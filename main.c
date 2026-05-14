@@ -10,9 +10,16 @@ int main()
     if (ptr != NULL)
     {
         int ch;
+        int count = 0;
         while ((ch = fgetc(ptr)) != EOF)
         {
-            printf("%02X", ch);
+            printf("%02X ", ch);
+            count++;
+            if (count == 16)
+            {
+                printf("\n");
+                count = 0;
+            }
         }
         fclose(ptr);
     }
